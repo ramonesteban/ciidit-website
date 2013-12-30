@@ -1,0 +1,31 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <h2 class="form-signin-heading">Iniciar sesión</h2>
+
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Correo', autofocus: true %>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Contraseña' %>
+  </div>
+  <%= f.submit 'Iniciar sesión', class: 'btn btn-lg btn-success btn-block' %>
+<% end %>
+
+<div class="forgot">
+  <a href="#message" data-toggle="modal">¿Olvidaste tu contraseña?</a>
+</div>
+
+<div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">¿Olvidaste tu contraseña?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Porfavor comunícate con el administrador del sistema para solicitar el cambio de tu contraseña.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+# This is the website for the CIIDIT
+
+User-agent: *
+Allow: /

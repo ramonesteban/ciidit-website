@@ -1,0 +1,47 @@
+<% if signed_in? && is_admin? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Lista de usuarios</h2>
+
+      <% if !notice.nil? %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.user_type %></td>
+              <td>
+                <%= link_to 'Ver', user, class: 'btn btn-default btn-xs' %>
+                <%= link_to 'Cambiar contraseña', change_password_path(user), class: 'btn btn-default btn-xs' %>
+                <% if user.email != current_user.email %>
+                <%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Seguro?' }, class: 'btn btn-danger btn-xs' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>No tienes permiso para ver esta página.</h3>
+    </div>
+  </div>
+<% end %>

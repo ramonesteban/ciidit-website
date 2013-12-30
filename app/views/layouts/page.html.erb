@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>CIIDIT - UANL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El CIIDIT es un centro multidisciplinario e integrador de la UANL constituido por laboratorios de última generación para distintas disciplinas de la ingeniería y tecnología.">
+    <meta name="author" content="UANL">
+
+    <!-- Le icons -->
+    <%= favicon_link_tag '/assets/icons/favicon.png', type: 'image/png' %>
+    <%= favicon_link_tag '/assets/icons/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+
+    <!-- Le fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <%= stylesheet_link_tag 'custom', "data-turbolinks-track" => true %>
+
+    <!-- Le javascript -->
+    <%= javascript_include_tag 'jquery-2.0.3.min' %>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <!--[if lt IE 9 ]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google analytics -->
+    <!--
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-42334195-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    -->
+  </head>
+  <body>
+    <div class="container maincontainer">
+      <div class="brand-header hidden-xs">
+        <a href="/">
+          <img src="/assets/logo-ciidit.png" class="pull-left">
+        </a>
+        <a href="http://www.uanl.mx/">
+          <img src="/assets/logo-uanl.png" class="pull-right">
+        </a>
+      </div>
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Opciones de navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand visible-xs" href="#">CIIDIT</a>
+        </div>
+
+        <!-- Toogle -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to('Directorio', directory_path) %></li>
+            <li><%= link_to('Eventos', events_path) %></li>
+            <li><%= link_to('Contacto', contact_path) %></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Más <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <% if signed_in? %>
+                <li><%= link_to('Actualizar perfil', settings_path) %></li>
+                <li><%= link_to('Cerrar sesión', signout_path, method: 'delete') %></li>
+                <% else %>
+                <li><%= link_to('Iniciar sesión', signin_path) %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- End toogle -->
+      </nav>
+
+      <div id="space"></div>
+
+      <script type="text/javascript">
+        if ($(window).width() <= 992) {
+          $('nav').addClass('navbar-fixed-top');
+          $('#space').addClass('blank-space');
+        }
+      </script>
+
+      <div class="content">
+        <%= yield %>
+      </div>
+
+      <hr>
+
+      <div id="footer">
+        <p class="text-muted credit">CIIDIT - UANL</p>
+      </div>
+
+    </div>
+  </body>
+</html>

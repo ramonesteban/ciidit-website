@@ -1,0 +1,36 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.navbar-left > li:eq(2)').addClass('active');
+  });
+</script>
+
+<h1>Contacto</h1>
+
+<address>
+  <strong>CIIDIT - UANL</strong><br>
+  Avenida Alianza 101 Sur Km. 10 de la Nueva Carretera Internacional de Monterrey<br>
+  PIIT Monterrey<br>
+  Apodaca, NL 66600<br>
+  <abbr title="Phone">Teléfono:</abbr> +52 (81) 1340 4000 ext. 1500<br>
+  <a href="mailto:ciidit@uanl.mx">ciidit@uanl.mx</a>
+</address>
+
+<div id="map-canvas"></div>
+
+<script>
+  function initialize() {
+    var ciidit_position = new google.maps.LatLng(25.764194, -100.124236);
+    var mapOptions = {
+      zoom: 12,
+      center: ciidit_position,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var marker = new google.maps.Marker({
+      position: ciidit_position,
+      map: map,
+      title: 'CIIDIT - PIIT'
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>

@@ -1,0 +1,22 @@
+<%= form_for(:user, url: users_path) do |f| %>
+  <h2 class="form-signin-heading">Crear cuenta</h2>
+
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nombre' %>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Correo' %>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Contraseña' %>
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></span>
+    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmar contraseña' %>
+  </div>
+
+  <%= f.submit 'Crear cuenta', class: 'btn btn-lg btn-primary btn-block' %>
+<% end %>

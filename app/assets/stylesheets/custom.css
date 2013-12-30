@@ -1,0 +1,50 @@
+body {
+  background-image: url("/assets/backgrounds/bg-lightgrey.png");
+}
+
+.brand-font {
+  font-family: "Krona One", sans-serif;
+}
+
+.blank-space {
+  height: 30px;
+}
+
+.content {
+  min-height: 500px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.forgot {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.brand-header {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.brand-header img {
+  padding: 10px;
+  height: 100%;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.maincontainer {
+  max-width: 992px;
+  margin: 10px auto;
+  border-radius: 6px;
+  background-color: #eaeaea;
+}
+
+#map-canvas {
+  height: 500px;
+  width: 100%;
+}

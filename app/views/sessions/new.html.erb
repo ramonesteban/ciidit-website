@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+  <% if signed_in? %>
+    <script type="text/javascript">
+      window.location.href='<%= settings_path %>';
+    </script>
+  <% else %>
+    <% if defined?(msg_login_failed) && (msg_login_failed != '') %>
+      <div class="alert alert-danger">
+        <%= msg_login_failed %>
+      </div>
+    <% end %>
+
+    <%= render template: 'sessions/signin_form' %>
+
+    <h4>¿Aún no eres miembro?</h4>
+    <%= link_to('Crear mi cuenta', signup_path, class: 'btn btn-default btn-block') %>
+  <% end %>
+  </div>
+</div>

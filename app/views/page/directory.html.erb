@@ -1,0 +1,118 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.navbar-left > li:eq(0)').addClass('active');
+  });
+</script>
+
+<h1>Directorio</h1>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Investigadores</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#id1" data-toggle="tab">Dra. Elisa Schaeffer</a></li>
+          <li><a href="#id2" data-toggle="tab">Dr. Alejandro Torres</a></li>
+          <li><a href="#id3" data-toggle="tab">Dr. Jesús de León</a></li>
+        </ul>
+        <ul class="nav nav-pills nav-stacked">
+        <% @users.each do |u| %>
+        <li><a href="#u<%= u.id %>" data-toggle="tab"><%= u.name %></a></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="tab-content">
+      <div class="tab-pane active" id="id1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Perfil</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="/assets/people/elisa-schaeffer.jpg" alt="" width="100">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Elisa Schaeffer</h4>
+                <p><b>Coordinador de Cómputo Científico</b></p>
+                <p>Teléfono: +52 81 1340 4000 ext. 1506</p>
+                <p>Correo: elisa.schaeffer@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="id2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Perfil</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="/assets/people/person.png" alt="" width="100">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Dr. Alejandro Torres Castro</h4>
+                <p><b>Coordinador de Mecatrónica</b></p>
+                <p>Teléfono: +52 81 1340 4000 ext. 1506</p>
+                <p>Correo: elisa.schaeffer@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="id3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Perfil</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="/assets/people/person.png" alt="" width="100">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Dr. Jesús de León Morales</h4>
+                <p><b>Coordinador de Microscopía Electrónica</b></p>
+                <p>Teléfono: +52 81 1340 4000 ext. 1506</p>
+                <p>Correo: elisa.schaeffer@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% @users.each do |u| %>
+      <div class="tab-pane" id="u<%= u.id %>">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Perfil</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="/assets/people/person.png" alt="" width="100">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"><%= u.name %></h4>
+                <p><b><%= u.title %></b></p>
+                <p>Teléfono: <%= u.phone %></p>
+                <p>Correo: <%= u.email %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

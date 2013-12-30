@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+  <% if signed_in? %>
+    <script type="text/javascript">
+      window.location.href='<%= settings_path %>';
+    </script>
+  <% else %>
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        La solicitud contiene <%= @user.errors.count %> errores.
+      </div>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if !notice.nil? %>
+      <div class="alert alert-danger">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <%= render template: 'users/signup_form' %>
+  <% end %>
+  </div>
+</div>
